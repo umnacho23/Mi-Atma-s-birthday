@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise for Riam</title>
+
+<style>
+
+/* ========== GLOBAL ========== */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+    margin: 0;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(120deg, #d63384, #e83e8c);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* MAIN */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* SECTIONS */
+section {
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(214,51,132,0.2);
+}
+
+#intro { background: #fff0f6; }
+#gift { background: #ffe6f2; }
+#reading { background: #fff0f5; }
+#memories { background: #ffe6f0; }
+
+/* BUTTON */
+button {
+    background: #d63384;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* QR */
+.qr-box { text-align: center; margin: 20px; }
+
+/* MEMORY */
+.memory-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.memory-card {
+    width: 250px;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.memory-card span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    color: rgb(51, 7, 102);
+    background: rgba(214,51,132,0.7);
+}
+
+/* INTRO SCREEN */
+#introScreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+}
+
+#counterText {
+    font-size: 80px;
+    color: #d63384;
+    font-weight: bold;
+}
+
+#finalMessage {
+    font-size: 22px;
+    color: #c2185b;
+    display: none;
+}
+button {
+    min-width: 120px;
+    min-height: 45px;
+}
+
+.message-card {
+    background: linear-gradient(135deg, #fff0f6, #ffe6f0);
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(214,51,132,0.25);
+    animation: fadeInUp 1s ease;
+}
+
+.message-card h2 {
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+.message-text {
+    font-size: 1.1rem;
+    color: #6b1d3f;
+    line-height: 1.7;
+}
+
+.message-sign {
+    margin-top: 20px;
+    font-style: italic;
+    color: #c2185b;
+}
+     img {
+    max-width: 100%;
+    height: auto;
+}
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    /* BOOK PAGE FIX */
+    .book {
+        width: 90%;
+        height: 400px;
+    }
+
+    /* MAGAZINE PAGE FIX */
+    .magazine {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .photo.big {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    /* GENERAL IMAGES */
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* BUTTONS */
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    
+/* FULL SCREEN INTRO */
+#introScreen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* COUNTDOWN NUMBER */
+#counterText {
+    font-size: 5rem;
+    color: #d63384;
+    animation: fadeZoom 1s ease;
+}
+
+/* FINAL MESSAGE CONTAINER */
+#finalMessage {
+    display: none;
+    text-align: center;
+}
+
+/* BIG BIRTHDAY TEXT */
+.birthday-text {
+    font-size: 3.5rem;
+    color: #d63384;
+    font-family: 'Georgia', serif;
+
+    text-shadow:
+        0 0 10px rgba(214,51,132,0.6),
+        0 0 20px rgba(214,51,132,0.5),
+        0 0 40px rgba(214,51,132,0.4);
+
+    animation: fadeUp 2s ease forwards, glow 2s infinite alternate;
+    opacity: 0;
+}
+
+/* TAP TEXT */
+.tap-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #6b1d3f;
+    animation: fadeUp 3s ease forwards;
+    opacity: 0;
+}
+
+/* ANIMATIONS */
+@keyframes fadeZoom {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 10px rgba(214,51,132,0.5),
+            0 0 20px rgba(214,51,132,0.4);
+    }
+    to {
+        text-shadow:
+            0 0 20px rgba(214,51,132,0.9),
+            0 0 40px rgba(214,51,132,0.8);
+    }
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    #counterText {
+        font-size: 3rem;
+    }
+
+    .birthday-text {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+
+    .tap-text {
+        font-size: 1rem;
+    }
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="introScreen">
+    <h1 id="counterText">1</h1>
+
+    <div id="finalMessage">
+        <h2 class="birthday-text">🎉 Happy Birthday Riam 🎉</h2>
+        <p class="tap-text">Tap anywhere to continue 💖</p>
+    </div>
+</div>
+
+<!-- MAIN WEBSITE -->
+<main id="mainContent" style="display:none;">
+
+<header>
+    <h1>Happy Birthday Riam 🎉</h1>
+    <p>Created with care by Umarr</p>
+</header>
+
+<section id="intro">
+    <h2>Welcome Mariama Dansoko</h2>
+    <p>This website was created only for you 💖</p>
+    <button id="startBtn">Start</button>
+</section>
+
+<section id="message" style="display:none;">
+    <div class="message-card">
+        <h2>💌 A Message For You</h2>
+
+        <p class="message-text">
+            Riam 💖,<br><br>
+            I may not have everything in the world,  
+            but I made this just for you.  
+            Every line, every part of this page  
+            carries a little piece of how special you are to me.
+            <br><br>
+            I hope this makes you smile 😊
+        </p>
+
+        <p class="message-sign">
+            — From Umarr 💛
+        </p>
+    </div>
+</section>
+
+<section id="reading" style="display:none;">
+    <h2>Books 📚</h2>
+    <a href="https://www.gutenberg.org/" target="_blank">Free Books</a>
+    <p>Just click here to see any book of your choice 💖💛</p>
+    <p>make your love for reading a dream here </p>
+</section>
+
+<section id="memories" style="display:none;">
+    <h2>Memories With Riam 💖</h2>
+    <p class="memory-intro">A collection of our favorite moments together.</p>
+    <div class="memory-gallery">
+
+        <!-- Memory 1 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/mes.jpeg" alt="Memory 1">
+                <span>Our Secret Whispers 🌊</span>
+            </div>
+            <a href="memspage.html" class="memory-link">click here to see some whispers</a>
+        </div>
+
+        <!-- Memory 2 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/mes2.jpeg" alt="Memory 2">
+                <span>Our Cherished Moments Together 🎉</span>
+            </div>
+            <a href="picture.html" class="memory-link">click here to see some moments</a>
+        </div>
+
+        <!-- Memory 3 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/mess3.jpeg" alt="Memory 3">
+                <span>Our Dream Destinations 🌿</span>
+            </div>
+            <a href="places.html" class="memory-link">Go to your Destination</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counterText = document.getElementById("counterText");
+    const finalMessage = document.getElementById("finalMessage");
+    const introScreen = document.getElementById("introScreen");
+    const mainContent = document.getElementById("mainContent");
+
+    const startBtn = document.getElementById("startBtn");
+    const intro = document.getElementById("intro");
+    const message = document.getElementById("message");
+    const reading = document.getElementById("reading");
+    const memories = document.getElementById("memories");
+
+    let count = 1;
+
+    const interval = setInterval(() => {
+        count++;
+        counterText.innerText = count;
+
+        if (count === 4) {
+            clearInterval(interval);
+
+            setTimeout(() => {
+                counterText.style.display = "none";
+                finalMessage.style.display = "block";
+            }, 500);
+        }
+    }, 700);
+
+    introScreen.addEventListener("click", () => {
+        if (finalMessage.style.display === "block") {
+            introScreen.style.display = "none";
+            mainContent.style.display = "block";
+        }
+    });
+
+    startBtn.addEventListener("click", () => {
+        intro.style.display = "none";
+        message.style.display = "block";
+        reading.style.display = "block";
+        memories.style.display = "block";
+    });
+
+
+    
+
+});
+
+</script>
+
+</body>
+</html>

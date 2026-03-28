@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories Page for Riam</title>
+    <style>
+        img {
+    max-width: 100%;
+    height: auto;
+}
+    button {
+    min-width: 120px;
+    min-height: 45px;
+}
+        /* ===== GLOBAL STYLES ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+            color: #6b1d3f;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d63384;
+            margin-top: 30px;
+            font-family: 'Georgia', serif;
+        }
+
+        .memory-sentence {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff0f6;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(214,51,132,0.3);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* ===== CARD GALLERY ===== */
+        .memory-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .memory-card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .memory-card {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(214,51,132,0.25);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+            background: #fff0f6;
+        }
+
+        .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+            transition: filter 0.5s ease;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 25px 50px rgba(214,51,132,0.35);
+        }
+
+        .memory-card:hover img {
+            filter: brightness(1);
+        }
+
+        .memory-card span {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to top, rgba(214,51,132,0.85), rgba(214,51,132,0));
+            color: white;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* ===== LINK UNDER CARD ===== */
+        .memory-link {
+            margin-top: 10px;
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .memory-link:hover {
+            color: #d63384;
+        }
+
+        /* ===== BACK LINK ===== */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 40px 0;
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #d63384;
+        }
+
+        /* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    /* BOOK PAGE FIX */
+    .book {
+        width: 90%;
+        height: 400px;
+    }
+
+    /* MAGAZINE PAGE FIX */
+    .magazine {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .photo.big {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    /* GENERAL IMAGES */
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* BUTTONS */
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <h1>Memories Page for Riam 💖</h1>
+
+    <!-- LONG SENTENCE INTRO -->
+    <div class="memory-sentence">
+        Riam, you’ve made every moment we shared unforgettable; I still remember the night we stayed up together 
+        listening to your favorite songs and watching “After,” and even though that memory is once in time, it has 
+        become a part of me now; happy birthday Riam, I remember everything about you, but I’ve learned to respect 
+        myself and will never lower myself for anyone again, even if you didn’t want anything from me but to see me cry.
+    </div>
+
+    <!-- MEMORY CARDS GALLERY -->
+    <div class="memory-gallery">
+        <!-- CARD 1 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/mero1.jpeg" alt="Memory 1">
+                <span>Memory 1</span>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/m4.JPG" alt="Memory 2">
+                <span>Memory 2</span>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/mero5.jpeg" alt="Memory 3">
+                <span>Memory 3</span>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/m5.JPG" alt="Memory 4">
+                <span>Memory 4</span>
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="memory-card-wrapper">
+            <div class="memory-card">
+                <img src="pictures/memories/m9.JPG" alt="Memory 5">
+                <span>Memory 5</span>
+            </div>
+            <a href="picture.html" class="memory-link"> click here to Go back to moment </a>
+             <a href="places.html" class="memory-link">click here to Go back to destination</a>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
